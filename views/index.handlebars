@@ -1,32 +1,36 @@
-<h1>Bob's Burgers</h1>
+<div class="bg"></div>
 
-<h2>Hot, Fresh and Ready to Eat</h2>
+<div class="container">
+  <div class="hotAndReady">
+    <h2>Hot and Fresh</h2>
+    <div>
+      {{#each burgers}}
+        {{#unless eaten}}
+          {{> burgers/burger eaten=false}}
+        {{/unless}}
+      {{/each}}
+    </div>
+  </div> 
 
-<ul>
-  {{#each burgers}}
-    {{#unless eaten}}
-      {{> burgers/burger eaten=false}}
-    {{/unless}}
-  {{/each}}
-</ul>
-
-<h2>Burgers in My Belly</h2>
-
-<ul>
-  {{#each burgers}}
-    {{#if eaten}}
-      {{> burgers/burger eaten=true}}
-    {{/if}}
-  {{/each}}
-</ul>
-
-<h2>Add a Burger</h2>
-<form class="create-form">
-
-  <div class="form-group">
-    <label for="ca">Burger Name:</label>
-    <input type="text" id="ca" name="name">
+  <div class="eatenBurgers">
+    <h2>Burgers in My Belly</h2>
+    <div>
+      {{#each burgers}}
+        {{#if eaten}}
+          {{> burgers/burger eaten=true}}
+        {{/if}}
+      {{/each}}
+    </div>
   </div>
 
-  <button type="submit">Add Burger</button>
-</form>
+  <div class="burgerInput">
+    <h2>Add a Burger</h2>
+    <form class="create-form">
+      <div class="form-group">
+        <label for="ca">Burger Name:</label>
+        <input type="text" id="ca" name="name">
+      </div>
+      <button type="submit">Add Burger</button>
+    </form>
+  </div>
+</div>

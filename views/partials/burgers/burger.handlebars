@@ -1,10 +1,16 @@
-<li>
-	{{burger_name}}
 
-	<button class="eatMe" data-id="{{id}}" data-eaten="{{true}}">
-		Eat Me
-	</button>
-	<button class="delete" data-id="{{id}}">
-		DELETE
-	</button>
-</li>
+<p>
+	{{burger_name}}
+	
+	{{#unless eaten}}
+		<button class="eatMe" data-id="{{id}}" data-eaten="{{true}}">
+			Eat Me
+		</button>
+	{{/unless}}
+	
+    {{#if eaten}}
+		<button class="delete" data-id="{{id}}">
+			DELETE
+		</button>
+    {{/if}}
+</p>
